@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { AuthService } from './service/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'User Management';
+  title = 'User Management'
+  isLoggedIn : boolean
+  constructor(private authService: AuthService, private ref: ChangeDetectorRef) { }
+
+  ngOnInit() {
+    this.authService.authChanged.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn; 
+      console.log(this.isLoggedIn  + " 19")
+      this.ref.detectChanges(); 
+    });
+  }
+
 }

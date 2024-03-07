@@ -8,10 +8,12 @@ import { UserInfoComponent } from './component/user-info/user-info.component';
 import { UserAddComponent } from './component/user-add/user-add.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailComponent } from './component/user-detail/user-detail.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data/in-memory-data.service';
+import { LoginComponent } from './component/login/login.component';
+import { LogoutComponent } from './component/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { InMemoryDataService } from './service/in-memory-data/in-memory-data.ser
     UserInfoComponent,
     UserAddComponent,
     PageNotFoundComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,7 @@ import { InMemoryDataService } from './service/in-memory-data/in-memory-data.ser
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
