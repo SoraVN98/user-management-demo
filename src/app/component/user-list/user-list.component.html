@@ -5,14 +5,14 @@
 <table class="table table-light table-hover table-bordered">
   <thead class="table-secondary">
     <tr>
-      <th scope="col">Id</th>
-      <th scope="col">name</th>
-      <th scope="col">username</th>
-      <th scope="col">email</th>
-      <th scope="col">Address</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Website</th>
-      <th scope="col">Company</th>
+      <th scope="col" (click)="sortTable('id')">Id</th>
+      <th scope="col" (click)="sortTable('name')">name</th>
+      <th scope="col" (click)="sortTable('username')">username</th>
+      <th scope="col" (click)="sortTable('email')">email</th>
+      <th scope="col" (click)="sortTable('address')">Address</th>
+      <th scope="col" (click)="sortTable('phone')">Phone</th>
+      <th scope="col" (click)="sortTable('website')">Website</th>
+      <th scope="col" (click)="sortTable('company.name')">Company</th>
       <th scope="col"></th>
     </tr>
   </thead>
