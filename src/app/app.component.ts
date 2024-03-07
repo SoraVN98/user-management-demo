@@ -14,7 +14,6 @@ export class AppComponent {
   ngOnInit() {
     this.authService.authChanged.subscribe((loggedIn: boolean) => {
       this.isLoggedIn = loggedIn; 
-      console.log(this.isLoggedIn  + " 19")
       this.ref.detectChanges(); 
     });
   }
