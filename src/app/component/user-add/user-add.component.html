@@ -2,67 +2,52 @@
     <h3>Add User Form</h3>
     <form #addForm="ngForm" (ngSubmit)="onSubmit()" method="" action="">
         <div class="col-12 mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="addname" #addname="ngModel" [(ngModel)]="user.name" name="addname"
-                required>
+            <label for="name" class="form-label">Name <span class="important-txt">(*)</span></label>
+            <input type="text" class="form-control" id="addname" #addname="ngModel" [(ngModel)]="user.name" name="addname" required>
             <div id="nameErr" class="form-text alert alert-danger" [hidden]="addname.valid || addname.pristine">Name is required</div>
         </div>
         <div class="col-12 mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" #username="ngModel" [(ngModel)]="user.username"
-                name="username" required>
-            <div id="usernameErr" class="form-text alert alert-danger" [hidden]="username.valid || username.pristine">
-                Username is required</div>
+            <label for="username" class="form-label">Username <span class="important-txt">(*)</span></label>
+            <input type="text" class="form-control" id="username" #username="ngModel" [(ngModel)]="user.username" name="username" required>
+            <div id="usernameErr" class="form-text alert alert-danger" [hidden]="username.valid || username.pristine">Username is required</div>
         </div>
         <div class="col-12 mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" #email="ngModel" [(ngModel)]="user.email" name="email"
-                [email]="true" required>
+            <label for="email" class="form-label">Email <span class="important-txt">(*)</span></label>
+            <input type="email" class="form-control" id="email" #email="ngModel" [(ngModel)]="user.email" name="email" [email]="true" required>
             <div id="emailErr" class="form-text alert alert-danger" [hidden]="email.valid || email.pristine">Email is invalid</div>
         </div>
         <div class="col-12 mb-3">
             <label for="address" class="form-label">Address</label>
             <div class="row g-3 align-items-center">
                 <div class="col-md-4">
-                    <label for="street" class="col-form-label">Street</label>
-                    <input type="text" id="street" class="form-control" name="street" #street="ngModel"
-                        [(ngModel)]="user.address.street" required>
-                    <div id="streetErr" class="form-text alert alert-danger" [hidden]="street.valid || street.pristine">
-                        Street is
-                        required</div>
+                    <label for="street" class="col-form-label">Street <span class="important-txt">(*)</span></label>
+                    <input type="text" id="street" class="form-control" name="street" #street="ngModel" [(ngModel)]="user.address.street" required>
+                    <div id="streetErr" class="form-text alert alert-danger" [hidden]="street.valid || street.pristine">Street is required</div>
                 </div>
                 <div class="col-md-4">
-                    <label for="city" class="col-form-label">City</label>
-                    <input type="text" id="street" class="form-control" name="city" #city="ngModel"
-                        [(ngModel)]="user.address.city" required>
+                    <label for="city" class="col-form-label">City <span class="important-txt">(*)</span></label>
+                    <input type="text" id="street" class="form-control" name="city" #city="ngModel" [(ngModel)]="user.address.city" required>
                     <div id="cityErr" class="form-text alert alert-danger" [hidden]="city.valid || city.pristine">City is required</div>
                 </div>
                 <div class="col-md-4">
-                    <label for="zipcode" class="col-form-label">Zipcode</label>
-                    <input type="text" id="street" class="form-control" name="zipcode" #zipcode="ngModel"
-                        [(ngModel)]="user.address.zipcode" required>
-                    <div id="zipcodeErr" class="form-text alert alert-danger"
-                        [hidden]="zipcode.valid || zipcode.pristine">Zipcode is
-                        required</div>
+                    <label for="zipcode" class="col-form-label">Zipcode <span class="important-txt">(*)</span></label>
+                    <input type="text" id="street" class="form-control" name="zipcode" #zipcode="ngModel" [(ngModel)]="user.address.zipcode" required>
+                    <div id="zipcodeErr" class="form-text alert alert-danger" [hidden]="zipcode.valid || zipcode.pristine">Zipcode is required</div>
                 </div>
             </div>
         </div>
         <div class="col-12 mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" #phone="ngModel" [(ngModel)]="user.phone" name="phone"
-                required>
-            <div id="phoneErr" class="form-text alert alert-danger" [hidden]="phone.valid || phone.pristine">Phone is
-                invalid</div>
+            <label for="phone" class="form-label">Phone <span class="important-txt">(*)</span></label>
+            <input type="text" class="form-control" id="phone" #phone="ngModel" [(ngModel)]="user.phone" name="phone" required>
+            <div id="phoneErr" class="form-text alert alert-danger" [hidden]="phone.valid || phone.pristine">Phone is invalid</div>
         </div>
         <div class="col-12 mb-3">
             <label for="website" class="form-label">Website</label>
-            <input type="text" class="form-control" id="website" #website="ngModel" [(ngModel)]="user.website"
-                name="website">
+            <input type="text" class="form-control" id="website" #website="ngModel" [(ngModel)]="user.website" name="website">
         </div>
         <div class="col-12 mb-3">
             <label for="company" class="form-label">Company</label>
-            <input type="text" class="form-control" id="website" #website="ngModel" [(ngModel)]="user.company.name"
-                name="company">
+            <input type="text" class="form-control" id="website" #website="ngModel" [(ngModel)]="user.company.name" name="company">
         </div>
         <button type="submit" class="btn btn-secondary mt-3 me-3" [disabled]="!addForm.form.valid" (click)="add(user)">Add</button>
         <button type="button" class="btn btn-secondary mt-3" (click)="goBack()">Cancel</button>
