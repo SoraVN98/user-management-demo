@@ -23,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +48,9 @@ import { MatListModule } from '@angular/material/list';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatSidenavModule, 
+    MatSidenavModule,
     MatListModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [
