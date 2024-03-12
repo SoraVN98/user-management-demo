@@ -1,3 +1,46 @@
-.nav-link {
-    font-weight: bold;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #4693e4;
+}
+
+.navbar-brand h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.drawer-container {
+    height: calc(100vh - 56px);
+}
+
+.mat-drawer {
+    width: 250px;
+}
+
+.mat-drawer-content {
+    padding: 20px;
+}
+
+.mat-list-item {
+    padding: 10px 20px;
+}
+
+.mat-list-item:hover {
+    background-color: #f0f0f0;
+}
+
+.text-danger {
+    color: #dc3545;
 }

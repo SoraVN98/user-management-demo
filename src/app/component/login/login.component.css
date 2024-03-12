@@ -1,14 +1,31 @@
-.form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+.card-form {
+    width: 80%;
+    margin: 20px auto;
 }
 
-input {
-    margin-top: 10px;
+.card-header {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-.btn {
-    width: 100%;
+.card-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.sign-in-button {
+    flex: 1;
 }

@@ -7,6 +7,6 @@
 <td>{{user.website}}</td>
 <td>{{user.company.name}}</td>
 <td class="table-btn">
-    <button class="btn btn-success" (click)="editUser(user)">Edit</button>
-    <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+    <button mat-raised-button color="primary" class="btn btn-edit" (click)="editUser(user)">Edit</button>
+    <button mat-raised-button color="warn" class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
 </td>

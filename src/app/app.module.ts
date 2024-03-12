@@ -14,6 +14,16 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data/in-memory-data.service';
 import { LoginComponent } from './component/login/login.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +43,19 @@ import { LogoutComponent } from './component/logout/logout.component';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     ReactiveFormsModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatSidenavModule, 
+    MatListModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
