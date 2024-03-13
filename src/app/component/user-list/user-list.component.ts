@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user/user.service';
 import { User } from '../../model/user';
 import { Subject, Observable } from 'rxjs';
@@ -9,17 +9,19 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit {
   listUser: User[] = [];
   searchTerms = new Subject<string>();
   users$!: Observable<User[]>;
+  showAddUserForm: boolean = false;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.showAddUserForm = false;
     this.userService.getListUser().subscribe((data: User[]) => {
       this.userService.listUser = data
-      return this.listUser = data
+      this.listUser = data
     })
 
     this.users$ = this.searchTerms.pipe(
@@ -27,6 +29,17 @@ export class UserListComponent {
       distinctUntilChanged(),
       switchMap((term: string) => this.userService.searchHeroes(term)),
     );
+  }
+
+  addBtnClick() {
+    this.showAddUserForm = true;
+  }
+
+  addUser(user: User) {
+    if (user) {
+      this.showAddUserForm = false;
+      this.listUser.push(user)
+    }
   }
 
   search(term: string) {

@@ -1,25 +1,37 @@
-<div class="search-box"> 
-  <label for="search-box">User Search: </label>
-  <input  #searchBox id="search-box" (input)="search(searchBox.value)" />
+<div *ngIf="!showAddUserForm">
+  <div class="search-box">
+    <div class="add-user">
+      <button mat-raised-button color="basic" (click)="addBtnClick()">Add User</button>
+    </div>
+    <div class="seach">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput #searchBox id="search-box" (input)="search(searchBox.value)" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <table class="table table-light table-hover table-bordered">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col" (click)="sortTable('id')">Id</th>
+        <th scope="col" (click)="sortTable('name')">name</th>
+        <th scope="col" (click)="sortTable('username')">username</th>
+        <th scope="col" (click)="sortTable('email')">email</th>
+        <th scope="col" (click)="sortTable('address')">Address</th>
+        <th scope="col" (click)="sortTable('phone')">Phone</th>
+        <th scope="col" (click)="sortTable('website')">Website</th>
+        <th scope="col" (click)="sortTable('company.name')">Company</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="searchBox.value == ''">
+      <tr app-user-info *ngFor="let user of listUser" [user]="user"></tr>
+    </tbody>
+    <tbody *ngIf="searchBox.value != ''">
+      <tr app-user-info *ngFor="let user of users$ | async" [user]="user"></tr>
+    </tbody>
+  </table>
 </div>
-<table class="table table-light table-hover table-bordered">
-  <thead class="table-secondary">
-    <tr>
-      <th scope="col" (click)="sortTable('id')">Id</th>
-      <th scope="col" (click)="sortTable('name')">name</th>
-      <th scope="col" (click)="sortTable('username')">username</th>
-      <th scope="col" (click)="sortTable('email')">email</th>
-      <th scope="col" (click)="sortTable('address')">Address</th>
-      <th scope="col" (click)="sortTable('phone')">Phone</th>
-      <th scope="col" (click)="sortTable('website')">Website</th>
-      <th scope="col" (click)="sortTable('company.name')">Company</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody *ngIf="searchBox.value == ''">
-    <tr  app-user-info *ngFor="let user of listUser" [user]="user"></tr>
-  </tbody>
-  <tbody *ngIf="searchBox.value != ''">
-    <tr  app-user-info *ngFor="let user of users$ | async" [user]="user"></tr>
-  </tbody>
-</table>
+
+<app-user-add *ngIf="showAddUserForm" (addUser)="addUser($event)"></app-user-add>

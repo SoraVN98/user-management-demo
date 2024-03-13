@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { UserInfoComponent } from './component/user-info/user-info.component';
-import { UserAddComponent } from './component/user-add/user-add.component';
+import { UserAddComponent } from './modules/user-add/user-add.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +15,6 @@ import { InMemoryDataService } from './service/in-memory-data/in-memory-data.ser
 import { LoginComponent } from './component/login/login.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,12 +23,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { FormAddUserModule } from './modules/form-add-user.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserInfoComponent,
-    UserAddComponent,
     PageNotFoundComponent,
     UserDetailComponent,
     LoginComponent,
@@ -51,11 +51,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormAddUserModule,
   ],
   providers: [
-    provideAnimationsAsync()
-
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
