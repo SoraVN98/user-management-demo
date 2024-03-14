@@ -10,6 +10,7 @@
 <mat-drawer-container class="drawer-container">
   <mat-drawer #drawer mode="side" opened>
     <mat-nav-list>
+      <app-dropdown [treeData]="treeData"></app-dropdown>
       <a mat-list-item routerLink="/user" routerLinkActive="text-danger">
         <div class="mat-list-item-content">
           <mat-icon>list</mat-icon>

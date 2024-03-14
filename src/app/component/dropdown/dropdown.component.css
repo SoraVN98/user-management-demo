@@ -1,0 +1,47 @@
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.mat-list-item-content {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.mat-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.mat-list-item-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.mat-icon {
+  margin-right: 10px;
+}
+
+.mat-list-item:hover {
+  background-color: #f0f0f0;
+}
+
+.mat-icon-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.mat-icon-dropdown-toggled{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+}

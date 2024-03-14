@@ -1,0 +1,21 @@
+<ul>
+    <li *ngFor="let node of treeData">
+        <div class="mat-list-item-content" *ngIf="node.children" (click)="toggleNode(node)"
+            [class.collapsed]="!node.expanded">
+            <div>{{ node.label }}</div>
+            <mat-icon [ngClass]="isToggled ? 'mat-icon-dropdown-toggled' : 'mat-icon-dropdown'">
+                <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                </svg>
+            </mat-icon>
+
+        </div>
+
+        <a mat-list-item *ngIf="!node.children" [routerLink]="node.src" routerLinkActive="text-danger">
+            <div class="mat-list-item-content">
+                {{node.label}}
+            </div>
+        </a>
+        <app-dropdown *ngIf="node.children && node.expanded" [treeData]="node.children"></app-dropdown>
+    </li>
+</ul>

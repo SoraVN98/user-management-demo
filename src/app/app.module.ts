@@ -24,7 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { FormAddUserModule } from './modules/form-add-user.module';
-
+import { DropdownComponent } from './component/dropdown/dropdown.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,8 @@ import { FormAddUserModule } from './modules/form-add-user.module';
     PageNotFoundComponent,
     UserDetailComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
