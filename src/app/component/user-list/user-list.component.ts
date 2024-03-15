@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnChanges, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user/user.service';
 import { User } from '../../model/user';
 import { Subject, Observable, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { UserAddComponent } from '../user-add/user-add.component';
 
 @Component({
   selector: 'app-user-list',
@@ -18,7 +17,6 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   userSubcription: Subscription | undefined
   @ViewChild('addUserForm') addUserForm: TemplateRef<any>;
   constructor(private userService: UserService, private dialog: MatDialog) { }
-
   ngOnInit() {
     this.userSubcription = this.userService.getListUser().subscribe((data: User[]) => {
       this.userService.listUser = data
@@ -33,7 +31,13 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('afterViewInit')
+    console.log("afterViewInit called")
+    setTimeout(() => {
+      const searchBox = document.getElementById('search-box')
+      if (searchBox) {
+        searchBox.focus()
+      }
+    })
   }
 
   ngOnDestroy(): void {
