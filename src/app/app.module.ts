@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { UserInfoComponent } from './component/user-info/user-info.component';
-import { UserAddComponent } from './modules/user-add/user-add.component';
+import { UserAddComponent } from './component/user-add/user-add.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,13 +23,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { FormAddUserModule } from './modules/form-add-user.module';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserInfoComponent,
+    UserAddComponent,
     PageNotFoundComponent,
     UserDetailComponent,
     LoginComponent,
@@ -52,8 +54,9 @@ import { DropdownComponent } from './component/dropdown/dropdown.component';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatDialogModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
-    FormAddUserModule,
   ],
   providers: [
     provideAnimationsAsync(),

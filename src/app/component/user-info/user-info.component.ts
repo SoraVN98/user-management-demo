@@ -13,7 +13,7 @@ export class UserInfoComponent {
   @Input() user : User;
 
   constructor(private userService : UserService, private userList : UserListComponent) {}
-
+  
   deleteUser(item : User) : void{
     this.userList.listUser = this.userList.listUser.filter(u => u !== item)
     this.userService.deleteUser(item.id).subscribe()

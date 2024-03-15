@@ -11,8 +11,8 @@ export class DropdownComponent {
 
   toggleNode(node: any) {
     if (node.children) {
-      this.isToggled = !this.isToggled;
       node.expanded = !node.expanded;
+      this.isToggled = !this.isToggled;
     }
   }
 }

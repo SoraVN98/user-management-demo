@@ -1,5 +1,5 @@
 <div class="add-user-form">
-    <h3>Add User Form</h3>
+    <h2>Add User Form</h2>
     <form #addForm="ngForm" (ngSubmit)="onSubmit()" method="" action="">
         <div class="col-12 mb-3">
             <label for="name" class="form-label">Name <span class="important-txt">(*)</span></label>
@@ -47,9 +47,10 @@
         </div>
         <div class="col-12 mb-3">
             <label for="company" class="form-label">Company</label>
-            <input type="text" class="form-control" id="website" #website="ngModel" [(ngModel)]="user.company.name" name="company">
+            <input type="text" class="form-control" id="website" #company="ngModel" [(ngModel)]="user.company.name" name="company">
         </div>
         <button type="submit" class="btn btn-secondary mt-3 me-3" [disabled]="!addForm.form.valid" (click)="add(user)">Add</button>
         <button type="button" class="btn btn-secondary mt-3" (click)="goBack()">Cancel</button>
     </form>
 </div>
+

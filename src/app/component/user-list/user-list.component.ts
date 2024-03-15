@@ -1,25 +1,26 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user/user.service';
 import { User } from '../../model/user';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { UserAddComponent } from '../user-add/user-add.component';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   listUser: User[] = [];
   searchTerms = new Subject<string>();
   users$!: Observable<User[]>;
-  showAddUserForm: boolean = false;
-
-  constructor(private userService: UserService) { }
+  userSubcription: Subscription | undefined
+  @ViewChild('addUserForm') addUserForm: TemplateRef<any>;
+  constructor(private userService: UserService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.showAddUserForm = false;
-    this.userService.getListUser().subscribe((data: User[]) => {
+    this.userSubcription = this.userService.getListUser().subscribe((data: User[]) => {
       this.userService.listUser = data
       this.listUser = data
     })
@@ -31,16 +32,25 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  addBtnClick() {
-    this.showAddUserForm = true;
+  ngAfterViewInit(): void {
+    console.log('afterViewInit')
   }
 
-  addUser(user: User) {
-    if (user) {
-      this.showAddUserForm = false;
-      this.listUser.push(user)
+  ngOnDestroy(): void {
+    if (this.userSubcription) {
+      this.userSubcription?.unsubscribe()
     }
   }
+
+  openAddUserForm() {
+    const dialogRef = this.dialog.open(this.addUserForm, {
+      height: '80%'
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+  }
+
 
   search(term: string) {
     this.searchTerms.next(term)

@@ -1,7 +1,7 @@
-<div *ngIf="!showAddUserForm">
+<div >
   <div class="search-box">
     <div class="add-user">
-      <button mat-raised-button color="basic" (click)="addBtnClick()">Add User</button>
+      <button mat-raised-button color="basic" (click)="openAddUserForm()">Add User</button>
     </div>
     <div class="seach">
       <mat-form-field>
@@ -34,4 +34,8 @@
   </table>
 </div>
 
-<app-user-add *ngIf="showAddUserForm" (addUser)="addUser($event)"></app-user-add>
+<ng-template #addUserForm>
+  <app-user-add></app-user-add>
+</ng-template>
+
+
